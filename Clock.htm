@@ -92,11 +92,13 @@ document.write('<div id="ieSeconds" style="position:absolute;width:16px;height:1
 document.write('</div></div>')
 }
 (ns)?window.captureEvents(Event.MOUSEMOVE):0;
-function Mouse(evnt){
-ymouse = (ns)?evnt.pageY+ClockFromMouseY-(window.pageYOffset):event.y+ClockFromMouseY;
-xmouse = (ns)?evnt.pageX+ClockFromMouseX:event.x+ClockFromMouseX;
+function mouse(evnt){
+//ymouse = (ns)?evnt.pageY+ClockFromMouseY-(window.pageYOffset):event.y+ClockFromMouseY;
+ymouse = evnt.pageY+ClockFromMouseY-(window.pageYOffset);
+//xmouse = (ns)?evnt.pageX+ClockFromMouseX:event.x+ClockFromMouseX;
+xmouse = evnt.pageX+ClockFromMouseX;
 }
-(ns)?window.onMouseMove=Mouse:document.onmousemove=Mouse;
+document.onmousemove=mouse;
 function ClockAndAssign(){
 time = new Date ();
 secs = time.getSeconds();
@@ -158,5 +160,14 @@ setTimeout('Delay()',20);
 }
 if (ns||ie)window.onload=Delay;
 </SCRIPT>
-<BR><BR><BR><BR><BR><BR><BR><BR><BR><FONT color=blue>Hi Guys this is  
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><FONT color=blue>Hi Guys this is 
 amazing.</FONT size=20 Color=red><BR>I do not know who wrote this HTML code.<br>Asoka Liyanage.</BODY></HTML>
+
+
+
+
+
+
+
+
+
